@@ -57,8 +57,39 @@ window.onkeypress(move_right, "Right")
 
 #s1 can move left and right based on arrow keys. s3 is an interactive component.
 
-#window.onkeypress(action, "space")
-s3.write("message",font = ("Arial", 40, "normal"))
+s4 = 0
+def talk():
+	global s4
+	if s4 == 0:
+		s3.color("White")
+		s3.write("Hullo!",font = ("Arial", 25, "normal"))
+		s4 = 1
+	elif s4 == 1:
+		s3.clear()
+		s3.color("White")
+		s3.write("Here, sit down, mate!🤯🤯🤯",font = ("Arial", 25, "normal"))
+		s4 = 2
+	elif s4 == 2:
+		s3.clear()
+		s3.color("White")
+		s3.write("Fancy a drink?", font = ("Arial", 25, "normal"))
+		s4 = 3
+	elif s4 == 3:
+		s3.clear()
+		s3.color("Red")
+		s3.write("bro ts pmo sb sybau ikiag ong fr", font = ("Arial", 25, "normal"))
+		s4 = 4
+	elif s4 == 4:
+		s3.clear()
+		s3.color("Yellow")
+		s3.write("Hooray! You successfully didn't fall back into your alchohol addiction!!!!", font = ("Arial", 12, "normal"))
+		s4 = 5
+	elif s4 == 5:
+		s3.clear()
+		s4 = 6
+
+window.onkeypress(talk, "space")
+
 
 # Section 4: Game Loop
 window.listen()
@@ -71,14 +102,10 @@ while True:
  	# TODO - code for automatic actions
 
 
-
-
-
-
 	window.update()
 
-	# if :
-	# 	break
+	if s4 == 6:
+		break
 	
 
 print("Game Over")
